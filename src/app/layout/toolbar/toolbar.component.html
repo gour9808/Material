@@ -1,16 +1,23 @@
-<mat-toolbar color="primary" >
-  <mat-toolbar-row >
-    <span>Custom Toolbar</span>
-    <mat-icon class="example-icon">verified_user</mat-icon>
-    <span>Second Line</span>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a href="http://concret.io">
+      <img class="img" src="../assets/logo.png" />
+    </a>
     <span class="example-spacer"></span>
-    <span>Third Line</span>
+    <mat-icon>bug_report</mat-icon>
+    <span [routerLink]="['/home/my']">Debug</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon">favorite</mat-icon>
-    <span>Third Line</span>
+    <mat-icon class="example-icon">event</mat-icon>
+    <span [routerLink]="['/home/events']">Events</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon">favorite</mat-icon>
+    <span [routerLink]="['/home/discussion']">Discussion</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">open_in_new</mat-icon>
+    <span>New Window</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">share</mat-icon>
+    <span>gourav</span>
   </mat-toolbar-row>
 
- 
+
 </mat-toolbar>

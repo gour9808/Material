@@ -9,7 +9,6 @@ import { MineComponent } from './debug/mine/mine.component';
 import { SettingComponent } from './debug/setting/setting.component';
 import { AllComponent } from './debug/all/all.component';
 import { DataLoaderComponent } from './data-loader/data-loader.component';
-import { CallbackComponent } from './callback/callback.component';
 
 export const eventRoutes: Routes = [
     { path: 'all', component: EventsComponent },
@@ -37,9 +36,23 @@ export const dashboardRoutes: Routes = [
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'auth/callback', component: CallbackComponent },
-    { path: 'load', component: DataLoaderComponent},
-    { path: 'home', component: ContainerComponent, loadChildren: './dashboard/home.module#HomeModule' }
+    { path: 'load', component: DataLoaderComponent },
+    {
+        path: 'home', component: ContainerComponent, children: [
+            { path: '', redirectTo: 'my', pathMatch: 'full' },
+            {
+                path: 'my', component: DashboardComponent, children: [
+                    { path: '', redirectTo: 'logs', pathMatch: 'full' },
+                    { path: 'logs', component: MineComponent },
+                    { path: 'allLogs', component: AllComponent },
+                    {path : 'flag', component : SettingComponent}
+                ]
+            },
+            { path: 'events', component: EventsComponent },
+             { path: 'discussion', component: DiscussionComponent },
+        ]
+    },
+
 
 ];
 

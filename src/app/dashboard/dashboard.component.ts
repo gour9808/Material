@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
   tabs = [
     { label: 'All', path: 'allLogs'  },
     { label: 'Mine', path: 'logs'  },
-    { label: '', path: 'flag' }
+    { label: 'Setting', path: 'flag', icon : 'flag' }
   ];
 
   constructor() { }
