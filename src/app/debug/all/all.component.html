@@ -20,7 +20,7 @@
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
             <mat-icon>visibility</mat-icon>
-            <span>View</span>
+            <span (click)="goToViewPage(element)">View</span>
           </button>
           <button mat-menu-item>
             <mat-icon>cloud_download</mat-icon>
@@ -32,7 +32,7 @@
           </button>
           <button mat-menu-item>
             <mat-icon>open_in_new</mat-icon>
-            <span>New Window</span>
+            <span (click) = "goToNewWindow()">New Window</span>
           </button>
         </mat-menu>
 

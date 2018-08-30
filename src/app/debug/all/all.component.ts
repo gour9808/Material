@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MineLogsService } from '../../services/mine-logs.service';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { saveAs } from 'file-saver';
+import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 
 
@@ -16,14 +17,14 @@ export class AllComponent implements OnInit {
   instanceUrl = localStorage.getItem('instance-url');
   mineLogs$: any = [];
   recordId: any;
-  data : any;
+  data: any;
 
   displayedColumns: string[] = ['Action', 'User', 'Operation', 'Duration', 'logSize', 'StartTime'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private mine: MineLogsService) { }
+  constructor(private mine: MineLogsService, private router: Router, private activate: ActivatedRoute) { }
 
   ngOnInit() {
     this.getAllLogs();
@@ -56,6 +57,22 @@ export class AllComponent implements OnInit {
     const filename = "Apex- " + this.recordId;
     const blob = new Blob([response], { type: 'application/octet-stream' });
     saveAs(blob, filename);
+  }
+
+  goToNewWindow() {
+    chrome.windows.create({
+      url: "index.html",
+      type: 'panel',
+      width: 1200,
+      height: 800,
+    },
+      () => {
+      });
+  }
+
+  goToViewPage(event) {
+    console.log("on row select", event);
+    this.router.navigate(['../details', event.Id], { relativeTo: this.activate });
   }
 
 }
