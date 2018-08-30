@@ -9,34 +9,14 @@ import { MineComponent } from './debug/mine/mine.component';
 import { SettingComponent } from './debug/setting/setting.component';
 import { AllComponent } from './debug/all/all.component';
 import { DataLoaderComponent } from './data-loader/data-loader.component';
+import { CallbackComponent } from './callback/callback.component';
+import { OAuthGuard } from './services/oAuth-guard.service';
 
-export const eventRoutes: Routes = [
-    { path: 'all', component: EventsComponent },
-]
-
-export const discussionsRoutes: Routes = [
-    { path: 'all', component: DiscussionComponent }
-]
-
-export const MineRoutes: Routes = [
-
-    { path: "", redirectTo: "logs" },
-    { path: "logs", component: MineComponent },
-    { path: "allLogs", component: AllComponent },
-    { path: "flag", component: SettingComponent },
-]
-
-export const dashboardRoutes: Routes = [
-    { path: '', redirectTo: 'my' },
-    { path: 'my', component: DashboardComponent, loadChildren: "./debug/mine/mine.module#MineModule" },
-    { path: 'events', loadChildren: './events/events.module#EventsModule' },
-    { path: 'discussions', loadChildren: './discussions/discussion.module#DisscussionsModule' },
-
-];
 
 export const appRoutes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'load', component: DataLoaderComponent },
+    { path: '', redirectTo: 'load', pathMatch: 'full' },
+    { path: 'auth', component: CallbackComponent },
+    { path: 'load', component: DataLoaderComponent, canActivate : [OAuthGuard] },
     {
         path: 'home', component: ContainerComponent, children: [
             { path: '', redirectTo: 'my', pathMatch: 'full' },
@@ -45,11 +25,11 @@ export const appRoutes: Routes = [
                     { path: '', redirectTo: 'logs', pathMatch: 'full' },
                     { path: 'logs', component: MineComponent },
                     { path: 'allLogs', component: AllComponent },
-                    {path : 'flag', component : SettingComponent}
+                    { path: 'flag', component: SettingComponent }
                 ]
             },
             { path: 'events', component: EventsComponent },
-             { path: 'discussion', component: DiscussionComponent },
+            { path: 'discussion', component: DiscussionComponent },
         ]
     },
 

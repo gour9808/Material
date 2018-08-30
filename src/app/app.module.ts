@@ -21,11 +21,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { EventsComponent } from './events/events.component';
 import { DiscussionComponent } from './discussion/discussion.component';
 import { SettingComponent } from './debug/setting/setting.component';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
-
+import { AuthService } from './services/auth.service';
+import { OAuthGuard } from './services/oAuth-guard.service';
+import { MineLogsService } from './services/mine-logs.service';
+import { HttpInterceptorService } from './interceptor/http.interceptor.service';
+import { MatMenuModule } from '@angular/material/menu';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 
 @NgModule({
@@ -41,7 +44,8 @@ import { HttpModule } from '@angular/http';
     CallbackComponent,
     EventsComponent,
     DiscussionComponent,
-    SettingComponent
+    SettingComponent,
+    TimeAgoPipe
 
   ],
   imports: [
@@ -57,10 +61,20 @@ import { HttpModule } from '@angular/http';
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
+    MatMenuModule
 
 
   ],
-  providers: [],
+
+
+  providers: [AuthService, OAuthGuard, MineLogsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
