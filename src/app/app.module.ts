@@ -29,6 +29,8 @@ import { MineLogsService } from './services/mine-logs.service';
 import { HttpInterceptorService } from './interceptor/http.interceptor.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
 
 
   ],
