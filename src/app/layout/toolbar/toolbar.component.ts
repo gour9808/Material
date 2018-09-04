@@ -7,8 +7,11 @@ import { Router } from '../../../../node_modules/@angular/router';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
+  nodeName = localStorage.getItem('nodeName')
 
-  constructor(private router : Router) { }
+  constructor(private router : Router) {
+   
+   }
 
   ngOnInit() {
   }

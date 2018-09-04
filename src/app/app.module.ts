@@ -30,6 +30,13 @@ import { HttpInterceptorService } from './interceptor/http.interceptor.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import {MatDialogModule} from '@angular/material/dialog';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {MatSelectModule} from '@angular/material/select';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import {  AutoCompleteModule } from 'primeng/primeng';
+import { ViewLogDetailComponent } from './view-log-details/view-log-details.component';
 
 
 
@@ -47,7 +54,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     EventsComponent,
     DiscussionComponent,
     SettingComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    ViewLogDetailComponent
 
   ],
   imports: [
@@ -64,8 +72,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     HttpModule,
     MatMenuModule,
-    MatDialogModule
-
+    MatDialogModule,
+    ConfirmDialogModule,
+    MatSelectModule,
+    DialogModule,
+    ButtonModule,
+    AutoCompleteModule,
 
   ],
 
@@ -76,6 +88,7 @@ import {MatDialogModule} from '@angular/material/dialog';
       useClass: HttpInterceptorService,
       multi: true
     },
+    ConfirmationService
   ],
 
   bootstrap: [AppComponent]

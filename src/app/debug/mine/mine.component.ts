@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import {  MatTableDataSource } from '@angular/material';
 import { MineLogsService } from '../../services/mine-logs.service';
 import { saveAs } from 'file-saver';
 import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
@@ -22,7 +22,6 @@ export class MineComponent implements OnInit {
   displayedColumns: string[] = ['Action', 'User', 'Operation', 'Duration', 'logSize', 'StartTime'];
   dataSource = new MatTableDataSource<any>();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private mineLogs: MineLogsService, private router: Router, private activate: ActivatedRoute) {
     this.getMineLogs();
@@ -31,7 +30,6 @@ export class MineComponent implements OnInit {
   ngOnInit() {
     console.log("mine component");
     this.getMineLogs();
-    this.dataSource.paginator = this.paginator;
   }
 
   getMineLogs() {

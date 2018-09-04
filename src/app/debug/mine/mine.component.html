@@ -1,8 +1,8 @@
 <div class="button-row" style="margin: 10px;">
   <button mat-raised-button (click) = "getMineLogs()" >Fetch Logs </button>
-  <button mat-raised-button>Watch new Logs</button>
+  <button mat-raised-button style="margin-left: 20px;">Watch new Logs</button>
 
-  <button mat-raised-button>Delete Cached</button>
+  <button mat-raised-button style="margin-left: 20px;">Delete Cached</button>
 
 
 </div>
@@ -75,5 +75,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
