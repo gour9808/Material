@@ -36,7 +36,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {  AutoCompleteModule } from 'primeng/primeng';
-import { ViewLogDetailComponent } from './view-log-details/view-log-details.component';
 
 
 
@@ -55,7 +54,6 @@ import { ViewLogDetailComponent } from './view-log-details/view-log-details.comp
     DiscussionComponent,
     SettingComponent,
     TimeAgoPipe,
-    ViewLogDetailComponent
 
   ],
   imports: [
