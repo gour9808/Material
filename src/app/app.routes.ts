@@ -11,12 +11,13 @@ import { AllComponent } from './debug/all/all.component';
 import { DataLoaderComponent } from './data-loader/data-loader.component';
 import { CallbackComponent } from './callback/callback.component';
 import { OAuthGuard } from './services/oAuth-guard.service';
+import { SchemaBuilderComponent } from './schema-builder/schema-builder.component';
 
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: 'load', pathMatch: 'full' },
     { path: 'auth', component: CallbackComponent },
-    { path: 'load', component: DataLoaderComponent, canActivate : [OAuthGuard] },
+    { path: 'load', component: DataLoaderComponent, canActivate: [OAuthGuard] },
     {
         path: 'home', component: ContainerComponent, children: [
             { path: '', redirectTo: 'my', pathMatch: 'full' },
@@ -25,15 +26,14 @@ export const appRoutes: Routes = [
                     { path: '', redirectTo: 'logs', pathMatch: 'full' },
                     { path: 'logs', component: MineComponent },
                     { path: 'allLogs', component: AllComponent },
-                    { path: 'flag', component: SettingComponent }
+                    { path: 'flag', component: SettingComponent },
+                    {path : 'schema', component : SchemaBuilderComponent}
                 ]
             },
             { path: 'events', component: EventsComponent },
             { path: 'discussion', component: DiscussionComponent },
         ]
     },
-
-
 ];
 
 export const routingConfiguration: ExtraOptions = {

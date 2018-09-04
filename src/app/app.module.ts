@@ -35,8 +35,13 @@ import {ConfirmationService} from 'primeng/api';
 import {MatSelectModule} from '@angular/material/select';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import {  AutoCompleteModule } from 'primeng/primeng';
+import {  AutoCompleteModule, CheckboxModule } from 'primeng/primeng';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SchemaBuilderComponent } from './schema-builder/schema-builder.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCardModule} from '@angular/material/card';
+import {AccordionModule} from 'primeng/accordion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -56,6 +61,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DiscussionComponent,
     SettingComponent,
     TimeAgoPipe,
+    SchemaBuilderComponent,
 
   ],
   imports: [
@@ -78,7 +84,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DialogModule,
     ButtonModule,
     AutoCompleteModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatCardModule,
+    AccordionModule,
+    MatCheckboxModule
+    
 
   ],
 
