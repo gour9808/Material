@@ -18,6 +18,7 @@ export class MineComponent implements OnInit {
   mineLogs$: any = [];
   recordId: any;
   data: any;
+  spinner : boolean;
 
   displayedColumns: string[] = ['Action', 'User', 'Operation', 'Duration', 'logSize', 'StartTime'];
   dataSource = new MatTableDataSource<any>();
@@ -33,9 +34,11 @@ export class MineComponent implements OnInit {
   }
 
   getMineLogs() {
+    this.spinner = true;
     this.mineLogs.getMineLogs(this.logUserId).subscribe(res => {
       console.log("mine logs", res.records);
       this.dataSource = res.records;
+      this.spinner = false;
     })
   }
 

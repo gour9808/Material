@@ -36,6 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {  AutoCompleteModule } from 'primeng/primeng';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -76,6 +78,7 @@ import {  AutoCompleteModule } from 'primeng/primeng';
     DialogModule,
     ButtonModule,
     AutoCompleteModule,
+    MatProgressSpinnerModule
 
   ],
 

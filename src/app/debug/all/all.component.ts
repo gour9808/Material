@@ -18,6 +18,7 @@ export class AllComponent implements OnInit {
   mineLogs$: any = [];
   recordId: any;
   data: any;
+  spinner: boolean;
 
   displayedColumns: string[] = ['Action', 'User', 'Operation', 'Duration', 'logSize', 'StartTime'];
   dataSource = new MatTableDataSource<any>();
@@ -31,9 +32,11 @@ export class AllComponent implements OnInit {
 
 
   getAllLogs() {
+    this.spinner = true;
     this.mine.getAllLogs().subscribe(res => {
       console.log("res for all logs", res);
       this.dataSource = res.records;
+      this.spinner = false;
 
     })
   }

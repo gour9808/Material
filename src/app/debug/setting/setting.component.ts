@@ -28,6 +28,7 @@ export class SettingComponent implements OnInit {
   add: post.CreateUser = new post.CreateUser();
   userName: string;
   devName: string;
+  spinner : boolean;
 
 
   configs = [
@@ -44,9 +45,11 @@ export class SettingComponent implements OnInit {
   }
 
   fetchTraceLogs() {
+    this.spinner = true;
     this.mine.fetchFlags().subscribe(res => {
       console.log("Trace flag data", res);
       this.dataSource = res.records;
+      this.spinner = false;
 
     })
   }
